@@ -34,3 +34,7 @@ The website is divided into two main sections: Excel to JSON conversion and code
 
 ## Pictures
 ![Templer.io Screenshot](./src/assets/ReadMe/1.png)
+![Templer.io Screenshot](./src/assets/ReadMe/2.png)
+![Templer.io Screenshot](./src/assets/ReadMe/3.png)
+![Templer.io Screenshot](./src/assets/ReadMe/4.png)
+![Templer.io Screenshot](./src/assets/ReadMe/5.png)
