@@ -1,0 +1,53 @@
+<div [@upAnimation] *ngIf="isFeedback" class="sm:rounded-2xl sm:bg-card feedbackCard">
+    <div color="primary" class="feedtool">
+        <span class="toolbarTitle mx-auto">{{feedBackTitle}}</span>
+        <button (click)="closeFeedback()" class="closeButtonPosition" mat-icon-button>
+            <!-- <mat-icon>close</mat-icon> -->
+        </button>
+    </div>
+    <div (selectedTabChange)="switchTitle($event)">
+        <div label="🐞&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BUG">
+                <div class="cardStyle"><h3>👋 Hey there</h3><p>Tell me what happened, where did you find mysterious bug, and how can I replicate it. The more details, the better!</p></div>
+                <div class="allignItems" >
+                    <div>
+                        <label>Title</label>
+                        <input matInput formControlName="title" class="inputFontColor">
+                        <!-- <mat-error *ngIf="title.invalid">You must enter a Title</mat-error> -->
+                    </div>
+                    <div >
+                        <label>Description</label>
+                        <textarea class="textAreaStyle" formControlName="description" matInput rows="10"></textarea>
+                        <!-- <mat-error *ngIf="description.invalid">You must enter a Description</mat-error> -->
+                    </div>
+                    <button mat-raised-button class="sendButton" #but [disabled]="reports.bugs.success || bugReport.invalid" (click)="sendBugReport()" [class.green]="reports.bugs.success === true" color="primary">
+                        <div class="horizontalCC" *ngIf="reports.bugs.loading"><!-- <mat-spinner diameter="30" class="uploader-status"></mat-spinner> --></div>
+                        <div *ngIf="!reports.bugs.loading && !reports.bugs.success">Send report<!-- <mat-icon class="sendIcon" svgIcon="feather:send"></mat-icon> --></div>
+                        <div *ngIf="reports.bugs.success">SENT</div>
+                    </button>
+                </div>
+        </div>
+        <div label="💬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FEEDBACK">
+            <div class="cardStyle"><h3>👋 Hi </h3><p>Tell me, what do you think about this site, what can I change to make it better or send me cool idea for future update.</p></div>
+            <div class="allignItems">
+                <div >
+                    <label>Title</label>
+                    <input formControlName="title" class="inputFontColor" matInput>
+                    <!-- <mat-error *ngIf="title.invalid">You must enter a Title</mat-error> -->
+                </div>
+                <div >
+                    <label>Description</label>
+                    <textarea class="textAreaStyle" formControlName="description" matInput rows="10"></textarea>
+                    <!-- <mat-error *ngIf="description.invalid">You must enter a Description</mat-error> -->
+                </div>
+                <button mat-raised-button class="sendButton" [disabled]="reports.feedback.success || feedback.invalid" (click)="sendFeedback()" [class.green]="reports.feedback.success === true" color="primary">
+                    <div class="horizontalCC" *ngIf="reports.feedback.loading"><!-- <mat-spinner diameter="30" class="uploader-status"></mat-spinner> --></div>
+                    <div *ngIf="!reports.feedback.loading && !reports.feedback.success">Send feedback<!-- <mat-icon class="sendIcon" svgIcon="feather:send"></mat-icon> --></div>
+                    <div *ngIf="reports.feedback.success">SENT</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="feedbackButton" (click)="toggleFeedback()" mat-fab color="primary" matTooltip="Submit feedback">
+   <!--  <mat-icon class="hoverIcon">feedback</mat-icon> -->
+</button>

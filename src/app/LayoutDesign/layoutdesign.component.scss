@@ -1,0 +1,15 @@
+//  Size and tab space for code display
+.codeSize {
+  max-width: 800px;
+  max-height: 470px;
+  min-width: 500px;
+  tab-size: 3 !important;
+  z-index: 7;
+}
+
+
+.bg-stripes-blue {
+  background-color: #60a5fa1a;
+  background-image: linear-gradient(135deg,#3b82f680 10%,#0000 0,#0000 50%,#3b82f680 0,#3b82f680 60%,#0000 0,#0000);
+  background-size: 7.07px 7.07px;
+}

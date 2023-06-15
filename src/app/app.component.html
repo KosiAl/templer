@@ -1,0 +1,244 @@
+<object-edit-component [data]="myData" (dataChange)="handleObjectEditorData($event)" [(ngModel)]="headersDialog"></object-edit-component>
+<div class="ks-card-bg shadow-lg fixed top-0 left-0 right-0 z-50">
+    <div class="pt-1 pl-10 pb-1">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <div class="sm:flex sm:space-x-5">
+                <div class="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
+                    <p class="ks-text-default">Welcome back,</p>
+                    <p class="ks-text-h3-primary font-bold">Obi-DEV Kanobi</p>
+                </div>
+            </div>
+            <div class="mt-5 flex justify-center sm:mt-0 p-4">
+                <!-- right side -->
+                <div class="flex flex-row flex-wrap gap-2 mr-4">
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-blue'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-blue-500 ring-gray-900 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-blue')"></button>
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-violet'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-violet-500 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-violet')"></button>
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-amber'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-amber-500 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-amber')"></button>
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-red'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-red-500 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-red')"></button>
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-pink'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-pink-500 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-pink')"></button>
+                    <button
+                        [ngClass]="
+                            theme.themeColor$() === 'theme-green'
+                                ? 'ring-2 ring-gray-900 dark:ring-white'
+                                : 'hover:ring-2 hover:ring-gray-900 dark:hover:ring-white'
+                        "
+                        class="h-6 w-6 rounded-full bg-green-500 transition-all duration-300"
+                        (click)="theme.changeThemeColor('theme-green')"></button>
+                    <tutorial *ngIf="mainTutorialApp.dark === true" [mainTutorial]="mainTutorialApp"></tutorial>
+                </div>
+                <icon [name]="'i-theme'" (click)="toggleTheme()" [isSelected]="theme.themeMode$() === 'light' ? true : false"></icon>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex flex-col mt-24">
+    <div class="w-[50%] mx-auto">
+        <div class="block">
+            <nav class="isolate flex divide-x divide-gray-200 dark:divide-black rounded-lg shadow" aria-label="Tabs">
+                <button
+                    (click)="setApp('codegen')"
+                    [ngClass]="
+                        app === 'codegen'
+                            ? 'bg-primary-100 dark:bg-primary-200 dark:text-black text-primary-700 font-bold'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 rounded-l-lg dark:hover:bg-primary-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-primary-50 focus:z-10"
+                    aria-current="page">
+                    CODE GENERATE
+                    <span [ngClass]="app === 'codegen' ? 'bg-primary-500' : ''" aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    (click)="setApp('design')"
+                    [ngClass]="
+                        app === 'design'
+                            ? 'bg-primary-100 dark:bg-primary-200 dark:text-black text-primary-700 font-bold'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 dark:hover:bg-primary-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-primary-50 focus:z-10">
+                    LAYOUT DESIGN
+                    <span [ngClass]="app === 'design' ? 'bg-primary-500' : ''" aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    [disabled]="true"
+                    [ngClass]="
+                        framework === 'react'
+                            ? 'bg-blue-50 dark:bg-blue-200 dark:text-black text-blue-700'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 dark:hover:bg-blue-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-blue-50 focus:z-10">
+                    XXX
+                    <span
+                        [ngClass]="framework === 'react' ? 'bg-blue-500' : ''"
+                        aria-hidden="true"
+                        class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    [disabled]="true"
+                    [ngClass]="
+                        framework === 'sapui'
+                            ? 'bg-orange-50 dark:bg-orange-200 dark:text-black text-orange-700'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 rounded-r-lg dark:hover:bg-orange-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-orange-50 focus:z-10">
+                    XXX
+                    <span
+                        [ngClass]="framework === 'sapui' ? 'bg-orange-500' : ''"
+                        aria-hidden="true"
+                        class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+            </nav>
+        </div>
+        <!--        <feedback [config]="config"></feedback> -->
+    </div>
+</div>
+<div *ngIf="app === 'design'" class="flex flex-col mt-6">
+    <layout-design-component></layout-design-component>
+</div>
+<div *ngIf="app === 'codegen'" class="flex flex-col">
+    <div class="flex flex-col flex-auto min-w-0 relative">
+        <!--        <tutorial *ngIf="mainTutorialApp.feedback === true" [pointer]="'BR'" [mainTutorial]="mainTutorialApp"></tutorial> -->
+        <!-- Main -->
+        <div class="flex-auto p-6 sm:p-10">
+            <div class="flex ...">
+                <div class="grow">
+                    <tutorial *ngIf="mainTutorialApp.excel === true" (open)="next($event)" [mainTutorial]="mainTutorialApp"></tutorial>
+                    <textarea
+                        id="customScrollBar"
+                        class="ks-form-area-rounded dark:bg-card-dark w-full"
+                        rows="25"
+                        style="resize: none"
+                        [(ngModel)]="excelString"></textarea>
+                </div>
+                <tutorial *ngIf="mainTutorialApp.welcome === true" [mainTutorial]="mainTutorialApp"></tutorial>
+                <div class="grow-0 p-10">
+                    <tutorial *ngIf="mainTutorialApp.edit === true" (open)="next($event)" [mainTutorial]="mainTutorialApp"></tutorial>
+                    <button class="ks-btn-primary w-full" [disabled]="JSONstring === ''" (click)="headersDialog = true">Edit JSON</button><br />
+                    <tutorial *ngIf="mainTutorialApp.convert === true" (open)="next($event)" [mainTutorial]="mainTutorialApp"></tutorial>
+                    <button class="ks-btn-primary w-full" [disabled]="excelString === ''" (click)="createJSON()">Convert</button><br />
+                </div>
+                <div class="grow">
+                    <tutorial *ngIf="mainTutorialApp.json === true" (open)="next($event)" [mainTutorial]="mainTutorialApp"></tutorial>
+                    <textarea
+                        id="customScrollBar"
+                        class="ks-form-area-rounded dark:bg-card-dark w-full"
+                        style="resize: none"
+                        (input)="isJSON(dataOutput.value)"
+                        [(ngModel)]="JSONstring"
+                        #dataOutput
+                        rows="25"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-[50%] mx-auto">
+        <div class="block">
+            <nav class="isolate flex divide-x divide-gray-200 dark:divide-black rounded-lg shadow" aria-label="Tabs">
+                <tutorial *ngIf="mainTutorialApp.angular === true" (open)="next($event)" [mainTutorial]="mainTutorialApp"></tutorial>
+                <button
+                    (click)="setFramework('angular')"
+                    [ngClass]="
+                        framework === 'angular'
+                            ? 'bg-red-50 dark:bg-red-200 dark:text-black text-red-700 font-bold'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    [disabled]="!isJsonStr || JSONstring === ''"
+                    class="text-gray-900 rounded-l-lg dark:hover:bg-red-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-red-50 focus:z-10"
+                    aria-current="page">
+                    ANGULAR
+                    <span [ngClass]="framework === 'angular' ? 'bg-red-500' : ''" aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    [disabled]="true"
+                    [ngClass]="
+                        framework === 'vue'
+                            ? 'bg-green-50 dark:bg-green-200 dark:text-black text-green-700'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 dark:hover:bg-green-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-green-50 focus:z-10">
+                    VUE
+                    <span
+                        [ngClass]="framework === 'vue' ? 'bg-green-500' : ''"
+                        aria-hidden="true"
+                        class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    [disabled]="true"
+                    [ngClass]="
+                        framework === 'react'
+                            ? 'bg-blue-50 dark:bg-blue-200 dark:text-black text-blue-700'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 dark:hover:bg-blue-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-blue-50 focus:z-10">
+                    REACT
+                    <span
+                        [ngClass]="framework === 'react' ? 'bg-blue-500' : ''"
+                        aria-hidden="true"
+                        class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+
+                <button
+                    [disabled]="true"
+                    [ngClass]="
+                        framework === 'sapui'
+                            ? 'bg-orange-50 dark:bg-orange-200 dark:text-black text-orange-700'
+                            : 'bg-white dark:bg-card-dark dark:text-gray-200'
+                    "
+                    class="text-gray-900 rounded-r-lg dark:hover:bg-orange-200 dark:hover:text-gray-900 disabled:bg-gray-200 dark:disabled:bg-zinc-950 dark:disabled:text-gray-700 disabled:text-gray-400 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-orange-50 focus:z-10">
+                    SAP UI5
+                    <span
+                        [ngClass]="framework === 'sapui' ? 'bg-orange-500' : ''"
+                        aria-hidden="true"
+                        class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+                </button>
+            </nav>
+        </div>
+        <!--        <feedback [config]="config"></feedback> -->
+    </div>
+    <div class="p-10">
+        <code-generation-component
+            *ngIf="framework === 'angular' && isJsonStr === true && JSONstring !== ''"
+            class="mt-13"
+            [config]="config"
+            [data]="dataOutput.value"></code-generation-component>
+    </div>
+</div>

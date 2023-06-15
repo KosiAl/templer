@@ -1,0 +1,115 @@
+<div *ngIf="headersDialog">
+    <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div @ngifFadeAnimation class="fixed inset-0 bg-gray-500 backdrop-blur-sm bg-opacity-75 transition-opacity"></div>
+
+        <div @ngifFadeAnimation class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div 
+                    class="relative transform overflow-hidden rounded-lg ks-bkgd p-3 text-left transition-all sm:my-8 sm:w-full sm:max-w-6xl">
+                    <div class="relative rounded-xl p-3">
+                        <div class="flex gap-4 rounded-lg text-sm leading-6 text-white mb-4">
+                            <h2 class="mx-auto text-center ks-text-h1-primary">Object editor</h2>
+                            <div class="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                                <button
+                                    (click)="closeDialog()"
+                                    type="button"
+                                    class="rounded-md ks-card-bg text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                    <span class="sr-only">Close</span>
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bg-stripes-indigo flex gap-4 rounded-lg leading-6 text-white">
+                            <div class="flex grow items-center justify-center rounded-lg p-4">
+                                <div>
+                                    <div class="text-center mb-3">
+                                        <label class="ks-text-label" *ngIf="headers.length === 0" [style.margin-bottom]="'30px'"
+                                            >Use the + sign to add new key-value pairs.</label
+                                        >
+                                        <label class="ks-text-label" *ngIf="headers.length !== 0" [style.margin-bottom]="'30px'"
+                                            >Here you can edit key-value pairs of object.</label
+                                        >
+                                    </div>
+                                    <div class="flex content-center gap-3" *ngFor="let item of headers; let i = index;">
+                                        <div class="flex flex-col">
+                                            <label class="ks-text-p mb-1">Key</label>
+                                            <input
+                                                class="ks-form-area-rounded-nobg"
+                                                #inp
+                                                value="{{item}}"
+                                                (blur)="writeHeaders()"
+                                                #heads
+                                                (input)="changeValue(heads.value, i)"
+                                                type="text" />
+                                            <div class="ks-text-label text-red-500 font-thin dark:text-red-500" *ngIf="error === i">Duplicated key</div>
+                                            <div class="ks-text-label text-red-500 dark:text-red-500 font-thin" *ngIf="inp.value.length === 0">Empty key</div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label class="ks-text-p mb-1">Type</label>
+                                            <dropdown
+                                                [class]="'w-30'"
+                                                class="min-w-[150px]"
+                                                [selected]="valueStateOfTypeDropdowns[i]"
+                                                [noBg]="true"
+                                                [values]="[{name:'Boolean'},{name:'String'},{name:'Number'}]"
+                                                (selectedValue)="selectTypeAndGenerateData($event, headers[i], i)">
+                                            </dropdown>
+                                        </div>
+                                        <button class="mt-6" (click)="deleteKey(i, heads.value)" color="primary">
+                                            <icon [name]="'ir-delete'" [color]="'red'">delete</icon>
+                                        </button>
+                                    </div>
+                                    <div class="text-center mt-4">
+                                        <button class="content-center" (click)="addKVpair()" [disabled]="!addButton" color="primary">
+                                            <icon [name]="'ic-add'" [color]="'primary'">add</icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex grow items-center justify-center rounded-lg p-4">
+                                <div class="">
+                                    <div class="">
+                                        <div class="sm:hidden">
+                                            <dropdown [values]="[{name: 'HTML', selected: true}]"></dropdown>
+                                        </div>
+                                        <div class="hidden sm:block">
+                                            <nav class="isolate flex divide-x divide-gray-200 rounded-t shadow" aria-label="Tabs">
+                                                <div
+                                                    class="text-gray-900 dark:text-black font-bold bg-primary-100 dark:bg-primary-200 dark:font-bold text-primary-700 rounded-t group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm focus:z-10"
+                                                    aria-current="page">
+                                                    JSON
+                                                    <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500"></span>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap content-center">
+                                        <div class="overflow-hidden relative rounded-b-md">
+                                            <div class="absolute top-2 right-4">
+                                                <button (click)="saveTheme('json')">
+                                                    <icon
+                                                        [name]="'ir-theme'"
+                                                        [themeInput]="jsonTheme"
+                                                        [color]="'yellow'"
+                                                        [isSelected]="jsonTheme === 'light'?false:true"></icon>
+                                                </button>
+                                            </div>
+                                            <pre class="json -mt-10" [ngClass]="(jsonTheme === 'light') ? 'lightCode' : 'darkCode' ">
+                                        <code id="customScrollBar" class="codeSize transition-colors duration-500" [languages]="['json']" [highlight]="stringJSON"></code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse gap-4">
+                            <button #button [contrast]="button" (click)="onAccept()" class="ks-btn-primary">Accept</button>
+                            <button (click)="onClose()" type="button" class="ks-btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

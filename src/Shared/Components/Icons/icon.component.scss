@@ -1,0 +1,159 @@
+$backgroundColor: var(--background-color);
+$iconColor: var(--icon-color);
+$iconColorHover: var(--icon-color-hover);
+
+@tailwind components;
+.background {
+    background-color: $backgroundColor;
+}
+.backgroundHover:hover {
+    background-color: $backgroundColor;
+}
+.color {
+    color: $iconColor;
+}
+/* .colorHover:hover {
+    color: $iconColorHover;
+} */
+
+.group {
+    &:hover {
+        .colorHover {
+            color: $iconColorHover;
+            cursor: pointer;
+        }
+    }
+}
+
+@layer components {
+    /* FRAME COMBINATIONS */
+    .icon-frame-light-rounded-primary {
+        @apply rounded-md bg-primary-200;
+    }
+    .icon-frame-light-circle-primary {
+        @apply rounded-full bg-primary-200;
+    }
+    .icon-frame-dark-rounded-primary {
+        @apply rounded-md bg-primary-800;
+    }
+    .icon-frame-dark-circle-primary {
+        @apply rounded-full bg-primary-800;
+    }
+
+    .icon-frame-light-rounded-default {
+        @apply background rounded-md;
+    }
+    .icon-frame-light-circle-default {
+        @apply background rounded-full;
+    }
+    .icon-frame-dark-rounded-default {
+        @apply background rounded-md;
+    }
+    .icon-frame-dark-circle-default {
+        @apply background rounded-full;
+    }
+
+    /* FRAME SPECIAL HOVER COMBINATIONS */
+    .icon-frame-light-rounded-primary-hover {
+        @apply rounded-md hover:cursor-pointer hover:bg-primary-200;
+    }
+    .icon-frame-light-circle-primary-hover {
+        @apply rounded-full hover:cursor-pointer hover:bg-primary-200;
+    }
+    .icon-frame-dark-rounded-primary-hover {
+        @apply rounded-md hover:cursor-pointer hover:bg-primary-800;
+    }
+    .icon-frame-dark-circle-primary-hover {
+        @apply rounded-full hover:cursor-pointer hover:bg-primary-800;
+    }
+
+    .icon-frame-light-rounded-default-hover {
+        @apply backgroundHover rounded-md hover:cursor-pointer;
+    }
+    .icon-frame-light-circle-default-hover {
+        @apply backgroundHover rounded-full hover:cursor-pointer;
+    }
+    .icon-frame-dark-rounded-default-hover {
+        @apply backgroundHover rounded-md hover:cursor-pointer;
+    }
+    .icon-frame-dark-circle-default-hover {
+        @apply backgroundHover rounded-full hover:cursor-pointer;
+    }
+
+    /* FRAME SIZE */
+    .icon-frame-size-lg {
+        @apply h-12 w-12;
+    }
+    .icon-frame-size-md {
+        @apply h-10 w-10;
+    }
+    .icon-frame-size-sm {
+        @apply h-6 w-6;
+    }
+
+    /* ICON SIZE */
+    .icon-size-lg {
+        @apply h-8 w-8;
+    }
+    .icon-size-md {
+        @apply  h-6 w-6;
+    }
+    .icon-size-sm {
+        @apply h-5 w-5;
+    }
+
+
+       
+/*         .icon-test {
+            @apply group-hover:text-gray-900;
+        } */
+
+    /* HOVER EFFECTS */
+    .icon-hover {
+        @apply hover:scale-125 hover:cursor-pointer;
+    }
+
+    /* DEFINED */
+    .icon-defined {
+        @apply color;
+    }
+    .icon-gray-900 {
+        @apply text-gray-900;
+    }
+
+    /* DEFINED HOVER*/
+    .icon-hover-defined {
+        @apply colorHover;
+    }
+
+    /* PRIMARY*/
+    .icon-primary-800 {
+        @apply text-primary-800;
+    }
+    .icon-primary-600 {
+        @apply text-primary-600;
+    }
+    .icon-primary-500 {
+        @apply text-primary-500;
+    }
+    .icon-primary-200 {
+        @apply text-primary-200;
+    }
+    .icon-gray-100 {
+        @apply text-gray-100;
+    }
+
+    /* PRIMARY HOVER*/
+    .icon-hover-primary-800 {
+        @apply group-hover:text-primary-800 hover:cursor-pointer;
+    }
+    .icon-hover-primary-600 {
+        @apply group-hover:text-primary-600 hover:cursor-pointer;
+    }
+    .icon-hover-primary-500 {
+        @apply group-hover:text-primary-500 hover:cursor-pointer;
+    }
+    .icon-hover-primary-200 {
+        @apply group-hover:text-primary-200 hover:cursor-pointer;
+    }
+}

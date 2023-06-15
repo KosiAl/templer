@@ -1,0 +1,240 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root',
+})
+export class OrdersService {
+    private orders = [
+        {
+            orderId: '0001',
+            customer: { name: 'Angus Hughes', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '121.66 ', quantity: '2' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '48',
+            status: 'pending',
+            payment: 'visa',
+            date: '25.06.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0002',
+            customer: { name: 'Homer Albert ', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '55', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'pending',
+            payment: 'paypal',
+            date: '14.06.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0003',
+            customer: { name: 'Hugh Mitchell', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '23', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'pending',
+            payment: 'google pay',
+            date: '02.06.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0004',
+            customer: { name: 'Eddie Otis', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '124', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'apple pay',
+            date: '21.05.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0005',
+            customer: {
+                name: 'Christopher  Bailey',
+                address: '9301 Wood Street Philadelphia, PA 19111',
+                email: 'hughes.brian@company.com',
+                phone: '215-555-1212',
+            },
+            products: [
+                { name: 'green cup', price: '5555', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'mastercard',
+            date: '10.05.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0006',
+            customer: { name: 'Rafael Rocco', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'rejected',
+            payment: 'mastercard',
+            date: '29.04.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0007',
+            customer: {
+                name: 'Zachariah Donald',
+                address: '9301 Wood Street Philadelphia, PA 19111',
+                email: 'hughes.brian@company.com',
+                phone: '215-555-1212',
+            },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '17.04.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0008',
+            customer: { name: 'Casey Austin', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'mastercard',
+            date: '05.04.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0009',
+            customer: { name: 'Tony Lee', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '25.03.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0010',
+            customer: { name: 'Stanley  Hughes', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'paypal',
+            date: '13.03.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0011',
+            customer: {
+                name: 'Mitchell Barnaby',
+                address: '9301 Wood Street Philadelphia, PA 19111',
+                email: 'hughes.brian@company.com',
+                phone: '215-555-1212',
+            },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'rejected',
+            payment: 'paypal',
+            date: '18.02.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0012',
+            customer: { name: 'Robin Ioan', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '07.02.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0013',
+            customer: { name: 'Cleo Rafael', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '25.06.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0014',
+            customer: { name: 'Abdullah Euan', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '25.03.2022',
+            productCategory: 'Cups',
+        },
+        {
+            orderId: '0015',
+            customer: { name: 'Brian Hughes', address: '9301 Wood Street Philadelphia, PA 19111', email: 'hughes.brian@company.com', phone: '215-555-1212' },
+            products: [
+                { name: 'green cup', price: '12', quantity: '1' },
+                { name: 'blue cup', price: '12', quantity: '1' },
+                { name: 'red cup', price: '12', quantity: '1' },
+            ],
+            totalPrice: '36',
+            status: 'approved',
+            payment: 'visa',
+            date: '03.01.2022',
+            productCategory: 'Cups',
+        },
+    ];
+
+    constructor() {}
+
+    getOrders() {
+        return this.orders;
+    }
+}

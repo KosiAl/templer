@@ -1,0 +1,205 @@
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.welcome === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">Welcome to Templer.io</p>
+        <p class="ks-text-p ks-text-revCol">
+            This website was made to help frontend developers faster develop boilerplate code. Currently it only supports creation of tables for
+            Angular with angular material CSS library. But in the future it will support multiple frameworks and CSS librarys.
+        </p>
+        <p class="ks-text-p ks-text-revCol">OK let's get started.</p>
+    </div>
+    <div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('welcome')">START</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.excel === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">TEXTAREA EXCEL</p>
+        <p class="ks-text-p ks-text-revCol">
+            In this textarea you can paste excel table. It also suports tables from other websites if there is proper formating on them.
+        </p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">1 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('excel')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.convert === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">CONVERT</p>
+        <p class="ks-text-p ks-text-revCol">Use this button to convert table from excel textarea to JSON structure.</p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">2 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('convert')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('convert')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.json === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">TEXTAREA JSON</p>
+        <p class="ks-text-p ks-text-revCol">
+            This textarea will produce JSON structure from your excel table. You can also paste JSON if you already have it and start generating
+            templates. Currently, there is not support for nested JSON
+        </p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">3 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('json')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('json')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.edit === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">EDIT JSON</p>
+        <p class="ks-text-p ks-text-revCol">
+            Here you can edit your JSON structure. You can add and remove key-value pars. To newly created keys you can assign simple values like
+            boolean, string or number. Data is generated automaticaly
+        </p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">4 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('edit')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('edit')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.angular === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">SELECT FRAMEWORK</p>
+        <p class="ks-text-p ks-text-revCol">Here, you select your favorite framework, then you select CSS library and you are ready to go</p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">5 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('angular')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('angular')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.dark === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">Theme switcher</p>
+        <p class="ks-text-p ks-text-revCol">Here you can switch between dark and light theme. Select your favorite primary color for best expirience.</p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">6 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('dark')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('dark')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="mainTutorial.feedback === true" class="ks-t-card flex-col">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">FEEDBACK</p>
+        <p class="ks-text-p ks-text-revCol">Please take your time, if you have new ideas for the website or if you encounter a bug</p>
+    </div>
+    <div>
+        <div class="float-left text-sm absolute bottom-1 ks-text-revCol">7 / 7</div>
+        <div class="float-right flex gap-4">
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="previous('feedback')">BACK</button>
+            <button class="ks-text-h4 font-bold ks-text-revCol" (click)="next('feedback')">NEXT</button>
+        </div>
+    </div>
+</div>
+
+<!----------------------- FRAMEWORK TUTORIAL ------------------------------------------------------------->
+
+<div [@ngifFadeAnimation] *ngIf="builderTutorial.init === true" class="ks-t-card init">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">CSS FRAMEWORKS</p>
+        <p class="ks-text-p ks-text-revCol">Use tabs to switch between CSS frameworks</p>
+    </div>
+    <div class="font-bold">1 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="nextF('init')">NEXT</button>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="builderTutorial.properties === true" class="ks-t-card properties">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">SETTINGS</p>
+        <p class="ks-text-p ks-text-revCol">Use settings to design the table you need.</p>
+    </div>
+    <div class="font-bold">2 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="previousF('properties')">BACK</button>
+        <button class="font-bold" (click)="nextF('properties')">NEXT</button>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="builderTutorial.incJSON === true" class="ks-t-card incJSON">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">INCLUDE JSON</p>
+        <p class="ks-text-p ks-text-revCol">Include JSON data in TS file</p>
+    </div>
+    <div class="font-bold">3 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="previousF('incJSON')">BACK</button>
+        <button class="font-bold" (click)="nextF('incJSON')">NEXT</button>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="builderTutorial.button === true" class="ks-t-card button">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">GENERATE COMPONENT</p>
+        <p class="ks-text-p ks-text-revCol">Use this button copy the CLI command for component generation</p>
+    </div>
+    <div class="font-bold">4 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="previousF('button')">BACK</button>
+        <button class="font-bold" (click)="nextF('button')">NEXT</button>
+    </div>
+</div>
+
+<div [@ngifFadeAnimation] *ngIf="builderTutorial.sepJSON === true" class="ks-t-card sepJSON">
+    <div>
+        <p class="ks-text-h3 font-bold ks-text-revCol">JSON AS FILE</p>
+        <p class="ks-text-p ks-text-revCol">You will recive json as service when you download ZIP</p>
+    </div>
+    <div class="font-bold">5 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="previousF('sepJSON')">BACK</button>
+        <button class="font-bold" (click)="nextF('sepJSON')">NEXT</button>
+    </div>
+</div>
+
+<div
+    [@ngifFadeAnimation]
+    *ngIf="builderTutorial.icons === true"
+    class="ks-t-card"
+    [ngClass]="index === 0 ? 'icons' : index === 1 ? 'icons2' : 'icons3'">
+    <div>
+        <p *ngIf="index === 0" style="font-weight: 500; font-size: 18px">CODE THEME</p>
+        <p *ngIf="index === 1" style="font-weight: 500; font-size: 18px">DOWNLOAD SINGLE</p>
+        <p *ngIf="index === 2" style="font-weight: 500; font-size: 18px">COPY CODE</p>
+        <p *ngIf="index === 0">Here you can switch between dark and light theme of code output area</p>
+        <p *ngIf="index === 1">Here you can download single file</p>
+        <p *ngIf="index === 2">Here you can copy the code content</p>
+    </div>
+    <div *ngIf="index === 0" class="font-bold">6 / 8</div>
+    <div *ngIf="index === 1" class="font-bold">7 / 8</div>
+    <div *ngIf="index === 2" class="font-bold">8 / 8</div>
+    <div style="float: right">
+        <button class="font-bold" (click)="previousF('icons')">BACK</button>
+        <button *ngIf="index === 0" (click)="nextIcon()">NEXT</button>
+        <button *ngIf="index === 1" (click)="nextIcon()">NEXT</button>
+        <button *ngIf="index === 2" class="font-bold" (click)="closeF()">FINISH</button>
+    </div>
+</div>

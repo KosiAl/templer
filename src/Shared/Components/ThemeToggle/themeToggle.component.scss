@@ -1,0 +1,352 @@
+$size: 25px;
+$multiple: 2;
+
+
+.sun {
+  top: 0px;
+  left: 0px;
+  z-index: 40;
+  scale: 0.67;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffd000;
+  position: absolute;
+  box-shadow: inset 0px 0px 10px 2px #eaac1a;
+}
+
+.moon {
+    top: 0px;
+    left: 0px;
+    scale: 0.67;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d4d4d4;
+    position: absolute;
+    z-index: 40;
+    box-shadow: inset 0px 0px 10px 2px #606060;
+}
+.moonRock {
+    top: 48px;
+    left: 19px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(149, 151, 160);
+    position: absolute;
+}
+.moonRock2 {
+    width: 20px;
+    height: 20px;
+    top: 18px;
+    left: 44px;
+    border-radius: 50%;
+    background-color: rgb(149, 151, 160);
+    position: absolute;
+}
+.moonRock3 {
+    width: 15px;
+    height: 15px;
+    top: 68px;
+    left: 66px;
+    border-radius: 50%;
+    background-color: rgb(149, 151, 160);
+    position: absolute;
+}
+
+.cloudHolder {
+    position: inherit;
+    top: 82px;
+    right: -8px;
+}
+.cloudHolder2 {
+    position: inherit;
+    top: 57px;
+    right: -8px;
+}
+
+.cloud {
+    position: absolute;
+    right: -19px;
+    bottom: 21px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud2 {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud3 {
+    position: absolute;
+    right: 25px;
+    bottom: -24px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+
+.cloud4 {
+    position: absolute;
+    right: 57px;
+    bottom: -33px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud5 {
+    position: absolute;
+    right: 86px;
+    bottom: -26px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud6 {
+    position: absolute;
+    right: 115px;
+    bottom: -31px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud7 {
+    position: absolute;
+    right: 143px;
+    bottom: -37px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.cloud8 {
+    position: absolute;
+    right: 176px;
+    bottom: -31px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    z-index: 20;
+}
+.tcloud {
+    position: absolute;
+    right: -3px;
+    bottom: 21px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+    background-color: rgb(196, 218, 252);
+}
+.tcloud2 {
+    position: absolute;
+    right: 19px;
+    bottom: 1px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+.tcloud3 {
+    position: absolute;
+    right: 49px;
+    bottom: 1px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+
+.tcloud4 {
+    position: absolute;
+    right: 76px;
+    bottom: -12px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+.tcloud5 {
+    position: absolute;
+    right: 101px;
+    bottom: -23px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+.tcloud6 {
+    position: absolute;
+    right: 121px;
+    bottom: -20px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+.tcloud7 {
+    position: absolute;
+    right: 155px;
+    bottom: -21px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+.tcloud8 {
+    position: absolute;
+    right: 197px;
+    bottom: -19px;
+    height: $multiple * $size;
+    width: $multiple * $size;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 10;
+        background-color: rgb(196, 218, 252);
+}
+
+.starHolder {
+  position: inherit;
+  top: -100px;
+  right: 0px;
+}
+
+.star1 {
+  left: 41px;
+  top: 10px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star2 {
+  left: 20px;
+  top: 30px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star3 {
+  left: 63px;
+  top: 45px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star4 {
+  left: 35px;
+  top: 64px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star5 {
+  left: 42px;
+  top: 37px;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star6 {
+  left: 105px;
+  top: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star7 {
+  left: 67px;
+  top: 18px;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star8 {
+  left: 105px;
+  top: 71px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star9 {
+  left: 80px;
+  top: 70px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star10 {
+  left: 92px;
+  top: 37px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+.star11 {
+  left: 84px;
+  top: 1px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}

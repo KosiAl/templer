@@ -1,0 +1,40 @@
+<div class="scale-[.35]">
+  <div (click)="isLight = !isLight" [ngClass]="isLight ? 'bg-blue-300' : 'bg-gray-800'" class="relative h-24 w-48 overflow-hidden rounded-full transition-all duration-500 hover:cursor-pointer">
+      <div [ngClass]="isLight ? 'sun' : 'translate-x-[140px] moon rotate-180'" class="transition-all duration-1000">
+          <div [ngClass]="isLight ? 'opacity-0' : 'opacity-100'" class="moonRock transition-all duration-1000 ease-out"></div>
+          <div [ngClass]="isLight ? 'opacity-0' : 'opacity-100'" class="moonRock2 transition-all duration-1000 ease-out"></div>
+          <div [ngClass]="isLight ? 'opacity-0' : 'opacity-100'" class="moonRock3 transition-all duration-1000 ease-out"></div>
+      </div>
+      <div [ngClass]="isLight ? '' : 'translate-y-[110px]'" class="cloudHolder transition-all duration-1000">
+          <div class="cloud"></div>
+          <div class="cloud2"></div>
+          <div class="cloud3"></div>
+          <div class="cloud4"></div>
+          <div class="cloud5"></div>
+          <div class="cloud6"></div>
+          <div class="cloud7"></div>
+          <div class="cloud8"></div>
+          <div class="tcloud"></div>
+          <div class="tcloud2"></div>
+          <div class="tcloud3"></div>
+          <div class="tcloud4"></div>
+          <div class="tcloud5"></div>
+          <div class="tcloud6"></div>
+          <div class="tcloud7"></div>
+          <div class="tcloud8"></div>
+      </div>
+      <div [ngClass]="isLight ? '' : 'translate-y-[110px]'" class="starHolder transition-all duration-1000">
+          <div class="star1"></div>
+          <div class="star2"></div>
+          <div class="star3"></div>
+          <div class="star4"></div>
+          <div class="star5"></div>
+          <div class="star6"></div>
+          <div class="star7"></div>
+          <div class="star8"></div>
+          <div class="star9"></div>
+          <div class="star10"></div>
+          <div class="star11"></div>
+      </div>
+  </div>
+</div>

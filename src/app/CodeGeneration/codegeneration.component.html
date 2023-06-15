@@ -1,0 +1,259 @@
+<div>
+    <dl
+        class="ks-card-bg mt-5 grid grid-cols-1 divide-y divide-gray-200 dark:divide-black overflow-hidden rounded-lg bg-white shadow md:grid-cols-6 md:divide-x md:divide-y-0">
+        <div class="px-4 py-5 sm:p-6">
+            <div class="flex flex-col gap-1">
+                <h3 class="mb-2 ks-text-h3">Basic settings</h3>
+                <toggle
+                    [(ngModel)]="materialSettings.filter"
+                    (changes)="printFramework($event, 'filter', 'mat')"
+                    [description]="'Filtering'"></toggle>
+                <toggle [(ngModel)]="materialSettings.sort" (changes)="printFramework($event, 'sort', 'mat')" [description]="'Sorting'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.paginator"
+                    (changes)="printFramework($event, 'paginator', 'mat')"
+                    [description]="'Pagination'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.selection"
+                    (changes)="printFramework($event, 'selection', 'mat')"
+                    [description]="'Selection'"></toggle>
+            </div>
+        </div>
+        <div class="px-4 py-5 sm:p-6">
+            <div class="flex flex-col gap-1">
+                <h3 class="mb-2 ks-text-h3">Advanced settings</h3>
+                <toggle
+                    [(ngModel)]="materialSettings.reorder"
+                    (changes)="printFramework($event, 'reorder', 'mat')"
+                    [description]="'Re-orderable columns'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.verticalLine"
+                    (changes)="printFramework($event, 'verticalLine', 'mat')"
+                    [description]="'Vertical lines'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.centerContent"
+                    (changes)="printFramework($event, 'centerContent', 'mat')"
+                    [description]="'Center content'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.headerSize"
+                    (changes)="printFramework($event, 'headerSize', 'mat')"
+                    [description]="'Bigger headers'"></toggle>
+            </div>
+        </div>
+
+        <div class="px-4 py-5 sm:p-6">
+            <div class="flex flex-col gap-1">
+                <h3 class="mb-2 ks-text-h3">Other settings</h3>
+                <toggle
+                    [(ngModel)]="materialSettings.sHeader"
+                    (changes)="printFramework($event, 'sHeader', 'mat')"
+                    [description]="'Sticky header'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.sFooter"
+                    (changes)="printFramework($event, 'sFooter', 'mat')"
+                    [description]="'Sticky footer'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.sLeft"
+                    (changes)="printFramework($event, 'sLeft', 'mat')"
+                    [description]="'Sticky left'"></toggle>
+                <toggle
+                    [(ngModel)]="materialSettings.sRight"
+                    (changes)="printFramework($event, 'sRight', 'mat')"
+                    [description]="'Sticky right'"></toggle>
+            </div>
+        </div>
+
+        <div class="px-4 py-5 sm:p-6">
+            <div>
+                <h3 class="mb-2 ks-text-h3">Name your component</h3>
+                <div class="flex ks-form-area-roundedLR mb-4">
+                    <div class="flex flex-col">
+                        <label class="ks-text-label mb-2">Prefix</label>
+                        <input
+                            [disabled]="!angularSettings.prefix"
+                            class="w-20"
+                            #prefixd
+                            [value]="componentName.prefix"
+                            (input)="nameComponent(prefixd.value, 'prefix', 'mat')"
+                            type="text" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="ks-text-label mb-2">Component</label>
+                        <input class="w-[100%]" #named [value]="componentName.name" (input)="nameComponent(named.value, 'name', 'mat')" type="text" />
+                    </div>
+                </div>
+                <toggle
+                    class="relative mt-2"
+                    [(ngModel)]="materialSettings.prefix"
+                    (changes)="printFramework($event, 'prefix', 'mat')"
+                    [description]="'Enable Prefix'"></toggle>
+            </div>
+        </div>
+        <div class="px-4 py-5 sm:p-6">
+            <div class="mx-auto text-center relative">
+                <!-- <tutorial *ngIf="frameTutorial.button === true" [pointer]="'NO'" [builderTutorial]="frameTutorial"></tutorial> -->
+                <h3 class="mb-6 ks-text-h3">Create component</h3>
+                <div [tooltip]="'Copy command'" (click)="openSnackBar()" class="mt-3 cursor-pointer p-2 rounded-md" [cdkCopyToClipboard]="fullCompString">
+                    <div class="flex flex-row">
+                        <p class="text-orange-400 font-bold">ng</p>
+                        <p class="font-bold ks-text-default">&nbsp;generate component</p>
+                        <p class="text-blue-500 font-bold">&nbsp;{{componentName.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 py-5 sm:p-6">
+            <div class="flex flex-col relative mb-2">
+                <h3 class="ks-text-h3">Download component</h3>
+                <button class="ml-2 mb-2 ks-btn-primary mt-4" (click)="downloadZip()">Download ZIP</button>
+                <toggle
+                    class="relative mt-2"
+                    [(ngModel)]="materialSettings.jsonAsFile"
+                    (changes)="printFramework($event, 'jsonAsFile', 'mat')"
+                    [description]="'JSON as file'"></toggle>
+                <div class="flex mt-4">
+                    <p class="ks-text-p font-bold">Material version:</p>
+                    <p class="ks-text-p-primary font-bold">11.2.5</p>
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>
+
+<div>
+    <!--  <tutorial *ngIf="frameTutorial.init === true" [pointer]="'T'" [builderTutorial]="frameTutorial"></tutorial> -->
+    <!-- CODE DISPLAY -->
+    <div class="flex flex-row mt-6 gap-6">
+        <div class="ks-card p-0 m-0 w-[50%]">
+            <div class="">
+                <div class="sm:hidden">
+                    <dropdown [values]="[{name: 'HTML', selected: true}]"></dropdown>
+                </div>
+                <div class="hidden sm:block">
+                    <nav class="isolate flex divide-x divide-gray-200 rounded-t shadow" aria-label="Tabs">
+                        <div
+                            class="text-gray-900 font-bold dark:text-black bg-primary-100 dark:bg-primary-200 text-primary-700 rounded-t group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm focus:z-10"
+                            aria-current="page">
+                            HTML
+                            <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 bg-primary-500"></span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="flex flex-col relative">
+                <div class="absolute top-2 right-4 flex">
+                    <!-- <tutorial *ngIf="frameTutorial.icons === true" [pointer]="'T'" [builderTutorial]="frameTutorial"></tutorial> -->
+
+                    <button
+                        [tooltip]="'Copy HTML'"
+                        (click)="openSnackBar()"
+                        *ngIf="myHtmlString"
+                        class="copyButtonPosition"
+                        [cdkCopyToClipboard]="myHtmlString">
+                        <icon [name]="'ir-copy'" [themeInput]="codeIsDark.html" [color]="'primary'"></icon>
+                    </button>
+
+                    <button
+                        [tooltip]="'Download HTML'"
+                        (click)="download('html')"
+                        *ngIf="myHtmlString"
+                        class="downloadButtonPosition">
+                        <icon [name]="'ir-download'" [themeInput]="codeIsDark.html" [color]="'primary'"></icon>
+                    </button>
+
+                    <button
+                        [tooltip]="'Change theme'"
+                        *ngIf="myHtmlString"
+                        class="brightnessButtonPosition"
+                        (click)="saveTheme('html')">
+                        <icon
+                            [name]="'ir-theme'"
+                            [color]="'yellow'"
+                            [themeInput]="codeIsDark.html"
+                            [isSelected]="codeIsDark.html === 'light'?false:true"></icon>
+                    </button>
+                </div>
+                <div label="HTML code" class="overflow-hidden">
+                    <pre class="html -mt-10" [ngClass]="(codeIsDark.html === 'light') ? 'lightCode' : 'darkCode' ">
+                    <code id="customScrollBar" class="codeSize allignCodeField" [languages]="['html']" [highlight]="myHtmlString"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="ks-card p-0 m-0 w-[50%]">
+            <div class="">
+                <div class="sm:hidden">
+                    <dropdown
+                        (selectedValue)="triggerSelection($event)"
+                        [values]="[{name: 'Typescript', selected: true},{name: 'Styles', selected: false}]"></dropdown>
+                </div>
+                <div class="hidden sm:block">
+                    <nav class="isolate flex divide-x divide-gray-200 dark:divide-black rounded-t shadow" aria-label="Tabs">
+                        <div
+                            (click)="triggerSelection('typescript')"
+                            [ngClass]="showCode === 'typescript' ? 'bg-primary-100 dark:bg-primary-200 dark:text-black text-primary-700' : 'bg-white dark:bg-card-dark font-medium dark:text-gray-200'"
+                            class="text-gray-900 font-bold rounded-tl dark:hover:bg-primary-200 hover:bg-primary-100 dark:hover:text-gray-900 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-primary-50 focus:z-10 cursor-pointer"
+                            aria-current="page">
+                            TypeScript
+                            <span
+                                [ngClass]="showCode === 'typescript' ? 'bg-primary-500':'bg-transparent'"
+                                aria-hidden="true"
+                                class="absolute inset-x-0 bottom-0 h-0.5"></span>
+                        </div>
+                        <div
+                            (click)="triggerSelection('styles')"
+                            [ngClass]="showCode === 'styles' ? 'bg-primary-100 dark:bg-primary-200 hover:bg-primary-100 dark:text-black text-primary-700' : 'bg-white dark:bg-card-dark font-medium dark:text-gray-200'"
+                            class="text-gray-900 font-bold rounded-tr dark:hover:bg-primary-200 dark:hover:text-gray-900 group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-center text-sm hover:bg-primary-50 focus:z-10 cursor-pointer"
+                            aria-current="page">
+                            Styles
+                            <span
+                                [ngClass]="showCode === 'styles' ? 'bg-primary-500':'bg-transparent'"
+                                aria-hidden="true"
+                                class="absolute inset-x-0 bottom-0 h-0.5"></span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div *ngIf="showCode === 'typescript'" label="TypeScript code" class="overflow-hidden relative">
+                    <div class="absolute top-2 right-4">
+                        <button [tooltip]="'Copy TS'" (click)="openSnackBar()" *ngIf="myTsString" class="copyButtonPosition" [cdkCopyToClipboard]="myTsString">
+                            <icon [name]="'ir-copy'" [themeInput]="codeIsDark.ts" [color]="'primary'"></icon>
+                        </button>
+                        <button [tooltip]="'Download TS'" (click)="download('ts')" *ngIf="myTsString" class="downloadButtonPosition">
+                            <icon [name]="'ir-download'" [themeInput]="codeIsDark.ts" [color]="'primary'"></icon>
+                        </button>
+                        <button [tooltip]="'Change theme'" *ngIf="myHtmlString" class="brightnessButtonPosition" (click)="saveTheme('ts')">
+                            <icon
+                                [name]="'ir-theme'"
+                                [themeInput]="codeIsDark.ts"
+                                [color]="'yellow'"
+                                [isSelected]="codeIsDark.ts === 'light'?false:true"></icon>
+                        </button>
+                    </div>
+                    <pre class="ts -mt-10" [ngClass]="(codeIsDark.ts === 'light') ? 'lightCode' : 'darkCode' ">
+                    <code id="customScrollBar" class="codeSize allignCodeField" [languages]="['typescript']" [highlight]="myTsString"></code></pre>
+                </div>
+                <div *ngIf="showCode === 'styles'" label="CSS code" class="overflow-hidden relative">
+                    <div class="absolute top-2 right-4">
+                        <button [tooltip]="'Copy SCSS'" (click)="openSnackBar()" *ngIf="myCSSstring" class="copyButtonPosition" [cdkCopyToClipboard]="myCSSstring">
+                            <icon [name]="'ir-copy'" [themeInput]="codeIsDark.css" [color]="'primary'"></icon>
+                        </button>
+                        <button [tooltip]="'Download SCSS'" (click)="download('scss')" *ngIf="myCSSstring" class="downloadButtonPosition">
+                            <icon [name]="'ir-download'" [themeInput]="codeIsDark.css" [color]="'primary'"></icon>
+                        </button>
+                        <button [tooltip]="'Change theme'" *ngIf="myHtmlString" class="brightnessButtonPosition" (click)="saveTheme('css')">
+                            <icon
+                                [name]="'ir-theme'"
+                                [themeInput]="codeIsDark.css"
+                                [color]="'yellow'"
+                                [isSelected]="codeIsDark.css === 'light'?false:true"></icon>
+                        </button>
+                    </div>
+                    <pre class="css -mt-10" [ngClass]="(codeIsDark.css === 'light') ? 'lightCode' : 'darkCode' ">
+                    <code id="customScrollBar" class="codeSize allignCodeField" [languages]="['css']" [highlight]="myCSSstring"></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<s-notification [(ngModel)]="copySuccess" [type]="'Success'" [description]="'Copied successfully'"></s-notification>
