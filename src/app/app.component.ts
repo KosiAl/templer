@@ -7,7 +7,7 @@ import { ThemeService } from '../Shared/Services/theme.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-    app = 'design';
+    app = 'codegen';
     isJsonStr = false;
     headersDialog = false;
     JSONstring = ``;
