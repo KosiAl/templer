@@ -33,4 +33,4 @@ Templer provides an in-built JSON code editor where you can add or remove key-va
 The website is divided into two main sections: Excel to JSON conversion and code generation, and a beta layout designer (flexbox and grid). You can use these tools to streamline your front-end development workflow.
 
 ## Pictures
-![Templer.io Screenshot](https://github.com/KosiAl/templer/tree/main/src/assets/ReadMe/1.png)
+![Templer.io Screenshot](./src/assets/ReadMe/1.png)
